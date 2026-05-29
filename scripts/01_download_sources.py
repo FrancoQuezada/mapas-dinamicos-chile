@@ -41,8 +41,18 @@ class Source:
     institution: str
     url: str
     filename: str
+    expected_magic: bytes
+    minimum_size_bytes: int
 
 
+# Source assumptions:
+# - INE's commune population file is kept as the raw Excel workbook published by
+#   INE. Later scripts are responsible for selecting total population and RM
+#   communes; this script intentionally avoids parsing or reshaping the workbook.
+# - Geoportal's DPA 2023 endpoint returns a ZIP containing shapefile components.
+#   Later scripts choose the commune layer, repair geometries, and reproject.
+# - Both selected raw formats are ZIP-based binaries, so the small magic-byte
+#   check below catches common failures such as an HTML error page saved as data.
 SOURCES = {
     "population_communal_annual": Source(
         source_id="population_communal_annual",
@@ -58,6 +68,8 @@ SOURCES = {
             "?sfvrsn=8c87fc3f_3"
         ),
         filename="estimaciones-y-proyecciones-2002-2035-comunas.xlsx",
+        expected_magic=b"PK",
+        minimum_size_bytes=100_000,
     ),
     "commune_geometries_primary": Source(
         source_id="commune_geometries_primary",
@@ -68,6 +80,8 @@ SOURCES = {
             "912598ad-ac92-35f6-8045-098f214bd9c2"
         ),
         filename="division-politica-administrativa-2023.zip",
+        expected_magic=b"PK",
+        minimum_size_bytes=100_000,
     ),
 }
 
@@ -168,8 +182,7 @@ def download_source(
                     if chunk:
                         temp_file.write(chunk)
 
-        if temp_path is None or temp_path.stat().st_size == 0:
-            raise RuntimeError(f"Downloaded file for {source.source_id} is empty.")
+        validate_downloaded_file(source, temp_path)
 
         temp_path.replace(destination)
         logging.info(
@@ -186,6 +199,26 @@ def download_source(
         if temp_path and temp_path.exists():
             temp_path.unlink()
         raise
+
+
+def validate_downloaded_file(source: Source, path: Path | None) -> None:
+    if path is None:
+        raise RuntimeError(f"No temporary file was created for {source.source_id}.")
+
+    file_size = path.stat().st_size
+    if file_size < source.minimum_size_bytes:
+        raise RuntimeError(
+            f"Downloaded file for {source.source_id} is unexpectedly small "
+            f"({file_size} bytes)."
+        )
+
+    with path.open("rb") as downloaded_file:
+        signature = downloaded_file.read(len(source.expected_magic))
+    if signature != source.expected_magic:
+        raise RuntimeError(
+            f"Downloaded file for {source.source_id} does not match the expected "
+            f"binary signature."
+        )
 
 
 def read_manifest(path: Path) -> list[dict[str, str]]:

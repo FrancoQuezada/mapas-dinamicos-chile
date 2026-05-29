@@ -4,3 +4,8 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Raw downloaded data
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/source_manifest.csv
