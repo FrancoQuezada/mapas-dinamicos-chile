@@ -177,7 +177,7 @@ def standardize_columns(columns: list[object]) -> list[str]:
 
 
 def is_year_column(column: str) -> bool:
-    return bool(re.fullmatch(r"(19|20)\d{2}", column))
+    return bool(re.fullmatch(r"(poblacion_)?(19|20)\d{2}", column))
 
 
 def find_header_row(raw: pd.DataFrame) -> int:

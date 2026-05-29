@@ -12,6 +12,7 @@ import csv
 import logging
 import sqlite3
 import sys
+from contextlib import closing
 from pathlib import Path
 
 import geopandas as gpd
@@ -385,26 +386,32 @@ def write_sqlite(
     if temp_path.exists():
         temp_path.unlink()
 
-    with sqlite3.connect(temp_path) as connection:
-        comunas.to_sql("comunas", connection, index=False, if_exists="replace")
-        metricas.to_sql("metricas", connection, index=False, if_exists="replace")
-        valores.to_sql("valores_comunales_anuales", connection, index=False, if_exists="replace")
-        fuentes.to_sql("fuentes", connection, index=False, if_exists="replace")
+    with closing(sqlite3.connect(temp_path)) as connection:
+        with connection:
+            comunas.to_sql("comunas", connection, index=False, if_exists="replace")
+            metricas.to_sql("metricas", connection, index=False, if_exists="replace")
+            valores.to_sql(
+                "valores_comunales_anuales",
+                connection,
+                index=False,
+                if_exists="replace",
+            )
+            fuentes.to_sql("fuentes", connection, index=False, if_exists="replace")
 
-        connection.executescript(
-            """
-            CREATE UNIQUE INDEX idx_comunas_codigo
-                ON comunas (codigo_comuna);
-            CREATE UNIQUE INDEX idx_metricas_id
-                ON metricas (id_metrica);
-            CREATE INDEX idx_valores_comuna_anio
-                ON valores_comunales_anuales (codigo_comuna, anio);
-            CREATE UNIQUE INDEX idx_valores_unique
-                ON valores_comunales_anuales (codigo_comuna, anio, id_metrica);
-            CREATE UNIQUE INDEX idx_fuentes_id
-                ON fuentes (source_id);
-            """
-        )
+            connection.executescript(
+                """
+                CREATE UNIQUE INDEX idx_comunas_codigo
+                    ON comunas (codigo_comuna);
+                CREATE UNIQUE INDEX idx_metricas_id
+                    ON metricas (id_metrica);
+                CREATE INDEX idx_valores_comuna_anio
+                    ON valores_comunales_anuales (codigo_comuna, anio);
+                CREATE UNIQUE INDEX idx_valores_unique
+                    ON valores_comunales_anuales (codigo_comuna, anio, id_metrica);
+                CREATE UNIQUE INDEX idx_fuentes_id
+                    ON fuentes (source_id);
+                """
+            )
 
     temp_path.replace(path)
 
