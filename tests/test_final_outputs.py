@@ -2,7 +2,6 @@ import sqlite3
 
 import pandas as pd
 
-
 METRIC_COLUMNS = {
     "codigo_comuna",
     "nombre_comuna",
@@ -15,6 +14,12 @@ METRIC_COLUMNS = {
     "unidad",
     "fuente",
     "fecha_descarga",
+}
+
+EXPECTED_METRICS = {
+    "poblacion_total",
+    "homicidios",
+    "tasa_homicidios_100k_hab",
 }
 
 GEOMETRY_COLUMNS = {
@@ -61,8 +66,14 @@ def test_all_years_are_integers(metrics_df):
 
 
 def test_final_period_is_approximately_30_years(metrics_df):
-    year_count = metrics_df["anio"].nunique()
+    population = metrics_df[metrics_df["id_metrica"] == "poblacion_total"]
+    year_count = population["anio"].nunique()
     assert 28 <= year_count <= 35
+
+
+def test_expected_metrics_exist(metrics_df):
+    metric_ids = set(metrics_df["id_metrica"].dropna().astype(str))
+    assert EXPECTED_METRICS <= metric_ids
 
 
 def test_geometry_file_contains_valid_geometries(geometries_gdf):
@@ -86,28 +97,65 @@ def test_every_geometry_commune_has_population_values(metrics_df, geometries_gdf
 
 
 def test_no_missing_commune_year_metric_combinations(metrics_df, geometries_gdf):
-    years = sorted(metrics_df["anio"].dropna().astype(int).unique().tolist())
     metric_ids = sorted(metrics_df["id_metrica"].dropna().astype(str).unique().tolist())
     commune_codes = sorted(
         geometries_gdf["codigo_comuna"].dropna().astype(str).unique().tolist()
     )
 
-    expected = pd.MultiIndex.from_product(
-        [commune_codes, years, metric_ids],
-        names=["codigo_comuna", "anio", "id_metrica"],
-    ).to_frame(index=False)
-    observed = metrics_df[["codigo_comuna", "anio", "id_metrica"]].drop_duplicates().copy()
+    observed = (
+        metrics_df[["codigo_comuna", "anio", "id_metrica"]].drop_duplicates().copy()
+    )
     observed["codigo_comuna"] = observed["codigo_comuna"].astype(str)
     observed["id_metrica"] = observed["id_metrica"].astype(str)
 
-    missing = expected.merge(
-        observed,
-        on=["codigo_comuna", "anio", "id_metrica"],
-        how="left",
-        indicator=True,
-    )
-    missing = missing[missing["_merge"] == "left_only"]
+    missing_frames = []
+    for metric_id in metric_ids:
+        years = sorted(
+            observed.loc[observed["id_metrica"] == metric_id, "anio"]
+            .dropna()
+            .astype(int)
+            .unique()
+            .tolist()
+        )
+        expected = pd.MultiIndex.from_product(
+            [commune_codes, years, [metric_id]],
+            names=["codigo_comuna", "anio", "id_metrica"],
+        ).to_frame(index=False)
+        missing_for_metric = expected.merge(
+            observed,
+            on=["codigo_comuna", "anio", "id_metrica"],
+            how="left",
+            indicator=True,
+        )
+        missing_frames.append(
+            missing_for_metric[missing_for_metric["_merge"] == "left_only"]
+        )
+
+    missing = pd.concat(missing_frames, ignore_index=True)
     assert missing.empty, missing.head(20).to_dict("records")
+
+
+def test_homicide_rate_is_per_100k_inhabitants(metrics_df):
+    population = metrics_df[metrics_df["id_metrica"] == "poblacion_total"][
+        ["codigo_comuna", "anio", "valor"]
+    ].rename(columns={"valor": "poblacion"})
+    homicides = metrics_df[metrics_df["id_metrica"] == "homicidios"][
+        ["codigo_comuna", "anio", "valor"]
+    ].rename(columns={"valor": "homicidios"})
+    rates = metrics_df[metrics_df["id_metrica"] == "tasa_homicidios_100k_hab"][
+        ["codigo_comuna", "anio", "valor"]
+    ].rename(columns={"valor": "tasa"})
+
+    merged = homicides.merge(
+        population,
+        on=["codigo_comuna", "anio"],
+        how="inner",
+        validate="one_to_one",
+    ).merge(rates, on=["codigo_comuna", "anio"], how="inner", validate="one_to_one")
+
+    assert not merged.empty
+    expected_rate = merged["homicidios"] / merged["poblacion"] * 100_000
+    assert ((merged["tasa"] - expected_rate).abs() < 1e-9).all()
 
 
 def test_sqlite_database_contains_expected_tables(final_paths):

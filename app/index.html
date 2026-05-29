@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mapas Chile</title>
+    <title>Indicadores comunales RM | Mapas Chile</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -12,42 +12,72 @@
   </head>
   <body>
     <main class="app-shell">
-      <section class="map-area" aria-label="Population map">
+      <section class="map-area" aria-label="Mapa comunal de indicadores">
         <div id="map"></div>
 
-        <div class="year-control" aria-label="Year selector">
-          <div class="year-control__top">
-            <span>Year</span>
-            <strong id="year-label">----</strong>
+        <div class="map-controls">
+          <div class="metric-control">
+            <label for="metric-select">Indicador</label>
+            <select id="metric-select"></select>
           </div>
-          <input id="year-slider" type="range" min="2002" max="2035" step="1" />
+
+          <div class="year-control" aria-label="Selector de año">
+            <div class="year-control__top">
+              <span>Año</span>
+              <strong id="year-label">----</strong>
+            </div>
+            <div class="year-control__row">
+              <button id="play-toggle" class="play-toggle" type="button">Play</button>
+              <input id="year-slider" type="range" min="2002" max="2035" step="1" />
+            </div>
+          </div>
         </div>
 
-        <div class="legend" id="legend" aria-label="Population legend"></div>
+        <div class="legend" id="legend" aria-label="Leyenda del indicador"></div>
       </section>
 
-      <aside class="side-panel" aria-label="Selected commune details">
+      <aside class="side-panel" aria-label="Detalle de comuna seleccionada">
+        <div class="app-title">
+          <p>Región Metropolitana de Santiago</p>
+          <h1>Indicadores comunales anuales</h1>
+          <p class="subtitle">
+            Evolución territorial de población e indicadores de seguridad a escala comunal.
+          </p>
+        </div>
+
         <div class="panel-header">
-          <p>Metropolitan Region</p>
-          <h1 id="commune-name">Santiago</h1>
+          <p>Comuna seleccionada</p>
+          <h2 id="commune-name">Santiago</h2>
         </div>
 
         <dl class="stat-grid">
           <div>
-            <dt>Selected year</dt>
+            <dt>Año seleccionado</dt>
             <dd id="selected-year">----</dd>
           </div>
           <div>
-            <dt>Population</dt>
-            <dd id="selected-population">--</dd>
+            <dt id="selected-metric-label">Indicador</dt>
+            <dd id="selected-value">--</dd>
           </div>
         </dl>
 
-        <section class="chart-section" aria-label="Population time series">
-          <h2>Annual population</h2>
-          <div class="chart-wrap">
-            <canvas id="population-chart"></canvas>
+        <section class="chart-section" aria-label="Serie anual de la comuna seleccionada">
+          <div class="section-heading">
+            <h2 id="chart-title">Serie anual</h2>
+            <p id="chart-subtitle"></p>
           </div>
+          <div class="chart-wrap">
+            <canvas id="metric-chart"></canvas>
+          </div>
+        </section>
+
+        <section class="data-notes" aria-label="Notas de fuente">
+          <h2>Fuente de datos</h2>
+          <p id="source-note">Cargando fuente...</p>
+          <p>
+            La serie de población de INE incluye estimaciones y proyecciones
+            cuando corresponde; no debe leerse como conteo censal anual observado.
+          </p>
         </section>
       </aside>
     </main>

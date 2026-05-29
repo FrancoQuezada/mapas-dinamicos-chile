@@ -18,7 +18,6 @@ from typing import Iterable
 
 import requests
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_RAW_DIR = PROJECT_ROOT / "data" / "raw"
 DEFAULT_MANIFEST = DEFAULT_RAW_DIR / "source_manifest.csv"
@@ -81,6 +80,25 @@ SOURCES = {
         ),
         filename="division-politica-administrativa-2023.zip",
         expected_magic=b"PK",
+        minimum_size_bytes=100_000,
+    ),
+    "insecurity_cead_delincuencia_chile": Source(
+        source_id="insecurity_cead_delincuencia_chile",
+        source_name=(
+            "CEAD delinquency data for Chile, processed by "
+            "bastianolea/delincuencia_chile"
+        ),
+        institution=(
+            "Centro de Estudios y Analisis del Delito (CEAD), via "
+            "bastianolea/delincuencia_chile"
+        ),
+        url=(
+            "https://raw.githubusercontent.com/bastianolea/"
+            "delincuencia_chile/main/datos/procesados/"
+            "cead_delincuencia_chile.parquet"
+        ),
+        filename="cead_delincuencia_chile.parquet",
+        expected_magic=b"PAR1",
         minimum_size_bytes=100_000,
     ),
 }

@@ -1,17 +1,12 @@
 # Dynamic Maps of Chile
 
-This repository will host a reproducible data pipeline and visualization system for commune-level indicators in Chile. The first milestone focuses on annual total population for all communes in the Metropolitan Region of Santiago, using official or traceable public sources.
+Reproducible data pipeline and lightweight static web app for commune-level indicators in Chile. The current milestone covers all communes in the Metropolitan Region of Santiago.
 
-No data has been downloaded yet. This initial setup only creates the project structure, documentation templates, and Python dependency list needed to build the pipeline.
+## Current Metrics
 
-## Initial Scope
-
-- Country: Chile
-- Region: Metropolitan Region of Santiago
-- Spatial unit: communes
-- First metric: annual total population
-- Time period: latest 30-year period available from the selected official or traceable public source
-- Geometry: commune polygons suitable for web mapping
+- `poblacion_total`: annual total population from INE commune-level estimates and projections, 2002-2035.
+- `homicidios`: annual homicide police cases from a traceable CEAD-derived public source, 2018-2025.
+- `tasa_homicidios_100k_hab`: homicide police cases per 100,000 inhabitants, derived from the two metrics above.
 
 ## Project Structure
 
@@ -23,8 +18,6 @@ No data has been downloaded yet. This initial setup only creates the project str
 │   ├── processed/
 │   └── final/
 ├── docs/
-│   ├── sources.md
-│   └── data_dictionary.md
 ├── notebooks/
 ├── scripts/
 ├── tests/
@@ -33,17 +26,24 @@ No data has been downloaded yet. This initial setup only creates the project str
 └── requirements.txt
 ```
 
-## Data Pipeline Plan
+## Pipeline
 
-The first milestone will be implemented with reproducible scripts:
+Run the full current pipeline after installing dependencies:
 
-1. Download raw population and geometry sources into `data/raw/`.
-2. Clean annual commune-level population data into `data/processed/`.
-3. Clean commune geometries into EPSG:4326 GeoJSON under `data/processed/`.
-4. Build app-ready CSV, Parquet, GeoJSON, and SQLite outputs under `data/final/`.
-5. Validate source coverage, commune-code joins, duplicates, missing values, geometry validity, and temporal coverage.
+```bash
+python scripts/01_download_sources.py --source all
+python scripts/02_clean_population.py
+python scripts/03_clean_geometries.py
+python scripts/06_clean_insecurity.py
+python scripts/07_build_derived_metrics.py
+python scripts/04_build_database.py
+python scripts/05_validate_database.py
+pytest
+```
 
-## Expected Final Outputs
+`scripts/04_build_database.py` writes final outputs under `data/final/` and syncs the static app copies under `app/data/`.
+
+## Final Outputs
 
 ```text
 data/final/comunas_rm.geojson
@@ -54,52 +54,11 @@ docs/sources.md
 docs/data_dictionary.md
 ```
 
-## Data Principles
-
-- Use official or traceable public sources whenever possible.
-- Do not manually copy data into final files.
-- Preserve raw downloaded files under `data/raw/`.
-- Write cleaned intermediate outputs under `data/processed/`.
-- Write app-ready outputs under `data/final/`.
-- Use `codigo_comuna` as the primary key.
-- Document source information, assumptions, limitations, and data lineage.
-- Validate data before considering any dataset complete.
-- Never invent, fabricate, or infer values that are not present in the selected source data.
-
-## Development
-
-Install dependencies in a virtual environment:
-
-```bash
-python -m venv .venv
-pip install -r requirements.txt
-```
-
-Run tests once pipeline scripts and final outputs exist:
-
-```bash
-pytest
-```
-
 ## Static Web App
 
-The first static map MVP lives in `app/`. It uses Leaflet, Chart.js, and PapaParse with no backend.
+The app in `app/` uses plain HTML, CSS, JavaScript, Leaflet, Chart.js, PapaParse, and static CSV/GeoJSON files. No frontend framework or backend is required.
 
-Before running the app, make sure the final data files exist:
-
-```text
-data/final/comunas_rm.geojson
-data/final/valores_comunales_anuales.csv
-```
-
-The app keeps browser-ready copies under:
-
-```text
-app/data/comunas_rm.geojson
-app/data/valores_comunales_anuales.csv
-```
-
-Run it locally from the project root:
+Run it locally:
 
 ```bash
 cd app
@@ -111,7 +70,3 @@ Then open:
 ```text
 http://localhost:8000
 ```
-
-## Status
-
-First data pipeline and static map MVP are in progress for Metropolitan Region commune population.

@@ -1,5 +1,6 @@
 .venv/
 __pycache__/
+*.pyc
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
@@ -9,3 +10,14 @@ __pycache__/
 data/raw/*
 !data/raw/.gitkeep
 !data/raw/source_manifest.csv
+
+# Large compressed/downloaded files
+*.zip
+*.7z
+*.rar
+*.xlsx
+*.xls
+
+# Temporary files
+*.tmp
+*.log

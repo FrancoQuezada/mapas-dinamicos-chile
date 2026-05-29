@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import csv
 import logging
+import shutil
 import sqlite3
 import sys
 from contextlib import closing
@@ -18,12 +19,18 @@ from pathlib import Path
 import geopandas as gpd
 import pandas as pd
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_POPULATION = PROJECT_ROOT / "data" / "processed" / "poblacion_comunal_anual.csv"
+DEFAULT_INSECURITY = (
+    PROJECT_ROOT / "data" / "processed" / "inseguridad_comunal_anual.csv"
+)
+DEFAULT_DERIVED_METRICS = (
+    PROJECT_ROOT / "data" / "processed" / "metricas_derivadas_comunales_anuales.csv"
+)
 DEFAULT_GEOMETRIES = PROJECT_ROOT / "data" / "processed" / "comunas_rm.geojson"
 DEFAULT_MANIFEST = PROJECT_ROOT / "data" / "raw" / "source_manifest.csv"
 DEFAULT_FINAL_DIR = PROJECT_ROOT / "data" / "final"
+DEFAULT_APP_DATA_DIR = PROJECT_ROOT / "app" / "data"
 
 METRICS_OUTPUT_NAME = "valores_comunales_anuales"
 GEOMETRIES_OUTPUT_NAME = "comunas_rm.geojson"
@@ -92,6 +99,24 @@ def parse_args() -> argparse.Namespace:
         help=f"Processed population CSV. Default: {DEFAULT_POPULATION}",
     )
     parser.add_argument(
+        "--insecurity",
+        type=Path,
+        default=DEFAULT_INSECURITY,
+        help=(
+            "Processed insecurity CSV. If missing, it is skipped. "
+            f"Default: {DEFAULT_INSECURITY}"
+        ),
+    )
+    parser.add_argument(
+        "--derived-metrics",
+        type=Path,
+        default=DEFAULT_DERIVED_METRICS,
+        help=(
+            "Processed derived metrics CSV. If missing, it is skipped. "
+            f"Default: {DEFAULT_DERIVED_METRICS}"
+        ),
+    )
+    parser.add_argument(
         "--geometries",
         type=Path,
         default=DEFAULT_GEOMETRIES,
@@ -110,6 +135,12 @@ def parse_args() -> argparse.Namespace:
         help=f"Final output directory. Default: {DEFAULT_FINAL_DIR}",
     )
     parser.add_argument(
+        "--app-data-dir",
+        type=Path,
+        default=DEFAULT_APP_DATA_DIR,
+        help=f"Static app data directory to sync. Default: {DEFAULT_APP_DATA_DIR}",
+    )
+    parser.add_argument(
         "--log-level",
         default="INFO",
         choices=["DEBUG", "INFO", "WARNING", "ERROR"],
@@ -118,14 +149,11 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def read_population(path: Path) -> pd.DataFrame:
+def read_metric_file(path: Path, *, label: str) -> pd.DataFrame:
     if not path.exists():
-        raise FileNotFoundError(
-            f"Processed population file not found: {path}. "
-            "Run scripts/02_clean_population.py first."
-        )
+        raise FileNotFoundError(f"Processed {label} file not found: {path}.")
 
-    population = pd.read_csv(
+    metrics = pd.read_csv(
         path,
         dtype={
             "codigo_comuna": "string",
@@ -139,10 +167,17 @@ def read_population(path: Path) -> pd.DataFrame:
             "fecha_descarga": "string",
         },
     )
-    population["anio"] = pd.to_numeric(population["anio"], errors="raise").astype(int)
-    population["valor"] = pd.to_numeric(population["valor"], errors="raise")
-    validate_population(population)
-    return population[METRIC_COLUMNS].copy()
+    metrics["anio"] = pd.to_numeric(metrics["anio"], errors="raise").astype(int)
+    metrics["valor"] = pd.to_numeric(metrics["valor"], errors="raise")
+    validate_metrics(metrics, label=label)
+    return metrics[METRIC_COLUMNS].copy()
+
+
+def read_optional_metric_file(path: Path, *, label: str) -> pd.DataFrame:
+    if not path.exists():
+        logging.warning("Processed %s file not found; skipping: %s", label, path)
+        return pd.DataFrame(columns=METRIC_COLUMNS)
+    return read_metric_file(path, label=label)
 
 
 def read_geometries(path: Path) -> gpd.GeoDataFrame:
@@ -159,33 +194,41 @@ def read_geometries(path: Path) -> gpd.GeoDataFrame:
 
     validate_geometries(geometries)
     if geometries.crs is None or geometries.crs.to_epsg() != 4326:
-        logging.info("Reprojecting final geometries from %s to EPSG:4326.", geometries.crs)
+        logging.info(
+            "Reprojecting final geometries from %s to EPSG:4326.", geometries.crs
+        )
         geometries = geometries.to_crs("EPSG:4326")
     return geometries
 
 
-def validate_population(population: pd.DataFrame) -> None:
-    missing_columns = [column for column in METRIC_COLUMNS if column not in population.columns]
+def validate_metrics(metrics: pd.DataFrame, *, label: str) -> None:
+    missing_columns = [
+        column for column in METRIC_COLUMNS if column not in metrics.columns
+    ]
     if missing_columns:
-        raise ValueError(f"Population data is missing columns: {missing_columns}")
+        raise ValueError(f"{label} data is missing columns: {missing_columns}")
 
-    missing_values = population[METRIC_COLUMNS].replace("", pd.NA).isna().sum()
+    missing_values = metrics[METRIC_COLUMNS].replace("", pd.NA).isna().sum()
     missing_values = missing_values[missing_values > 0]
     if not missing_values.empty:
-        raise ValueError(f"Population data has missing values: {missing_values.to_dict()}")
+        raise ValueError(f"{label} data has missing values: {missing_values.to_dict()}")
 
     duplicate_columns = ["codigo_comuna", "anio", "id_metrica"]
-    duplicates = population[population.duplicated(duplicate_columns, keep=False)]
+    duplicates = metrics[metrics.duplicated(duplicate_columns, keep=False)]
     if not duplicates.empty:
-        sample = duplicates[duplicate_columns].drop_duplicates().head(10).to_dict("records")
+        sample = (
+            duplicates[duplicate_columns].drop_duplicates().head(10).to_dict("records")
+        )
         raise ValueError(f"Duplicated metric rows found: {sample}")
 
-    if (population["valor"] < 0).any():
-        raise ValueError("Population values must be non-negative.")
+    if (metrics["valor"] < 0).any():
+        raise ValueError(f"{label} values must be non-negative.")
 
 
 def validate_geometries(geometries: gpd.GeoDataFrame) -> None:
-    missing_columns = [column for column in GEOMETRY_COLUMNS if column not in geometries.columns]
+    missing_columns = [
+        column for column in GEOMETRY_COLUMNS if column not in geometries.columns
+    ]
     if missing_columns:
         raise ValueError(f"Geometry data is missing columns: {missing_columns}")
 
@@ -197,11 +240,13 @@ def validate_geometries(geometries: gpd.GeoDataFrame) -> None:
     )
     missing_attributes = missing_attributes[missing_attributes > 0]
     if not missing_attributes.empty:
-        raise ValueError(f"Geometry data has missing attributes: {missing_attributes.to_dict()}")
+        raise ValueError(
+            f"Geometry data has missing attributes: {missing_attributes.to_dict()}"
+        )
 
-    duplicate_codes = geometries[
-        geometries.duplicated("codigo_comuna", keep=False)
-    ]["codigo_comuna"]
+    duplicate_codes = geometries[geometries.duplicated("codigo_comuna", keep=False)][
+        "codigo_comuna"
+    ]
     if not duplicate_codes.empty:
         raise ValueError(
             "Duplicated geometry commune codes found: "
@@ -219,8 +264,8 @@ def validate_geometries(geometries: gpd.GeoDataFrame) -> None:
         raise ValueError(f"Invalid geometries found: {names}")
 
 
-def validate_key_coverage(population: pd.DataFrame, geometries: gpd.GeoDataFrame) -> None:
-    metric_codes = set(population["codigo_comuna"].astype(str))
+def validate_key_coverage(metrics: pd.DataFrame, geometries: gpd.GeoDataFrame) -> None:
+    metric_codes = set(metrics["codigo_comuna"].astype(str))
     geometry_codes = set(geometries["codigo_comuna"].astype(str))
 
     missing_in_metrics = sorted(geometry_codes - metric_codes)
@@ -236,6 +281,15 @@ def validate_key_coverage(population: pd.DataFrame, geometries: gpd.GeoDataFrame
             "Communes present in metrics but missing geometries: "
             f"{missing_in_geometries}"
         )
+
+    for metric_id, metric_rows in metrics.groupby("id_metrica", dropna=False):
+        missing_for_metric = sorted(
+            geometry_codes - set(metric_rows["codigo_comuna"].astype(str))
+        )
+        if missing_for_metric:
+            raise ValueError(
+                f"Communes missing rows for metric {metric_id!r}: {missing_for_metric}"
+            )
 
 
 def build_comunas_table(geometries: gpd.GeoDataFrame) -> pd.DataFrame:
@@ -267,27 +321,41 @@ def final_geometry_columns(geometries: gpd.GeoDataFrame) -> list[str]:
     return [*GEOMETRY_COLUMNS[:-1], *optional_columns, "geometry"]
 
 
-def build_metricas_table(population: pd.DataFrame) -> pd.DataFrame:
+def build_metricas_table(metrics: pd.DataFrame) -> pd.DataFrame:
     metricas = (
-        population[["id_metrica", "nombre_metrica", "unidad"]]
+        metrics[["id_metrica", "nombre_metrica", "unidad"]]
         .drop_duplicates()
         .sort_values("id_metrica")
         .reset_index(drop=True)
     )
-    metricas["descripcion"] = metricas["id_metrica"].map(
-        {
-            "poblacion_total": (
-                "Annual total population by commune from the selected INE "
-                "commune-level estimates and projections source."
-            )
-        }
-    ).fillna("")
+    metricas["descripcion"] = (
+        metricas["id_metrica"]
+        .map(
+            {
+                "poblacion_total": (
+                    "Annual total population by commune from the selected INE "
+                    "commune-level estimates and projections source."
+                ),
+                "homicidios": (
+                    "Annual total police cases categorized as homicides in CEAD "
+                    "commune-level crime data."
+                ),
+                "tasa_homicidios_100k_hab": (
+                    "Annual homicide police cases per 100,000 inhabitants, derived "
+                    "from homicide counts and INE total population."
+                ),
+            }
+        )
+        .fillna("")
+    )
     return metricas[["id_metrica", "nombre_metrica", "unidad", "descripcion"]]
 
 
 def read_manifest(path: Path) -> dict[str, dict[str, str]]:
     if not path.exists():
-        logging.warning("Source manifest not found: %s. fuentes table will use defaults.", path)
+        logging.warning(
+            "Source manifest not found: %s. fuentes table will use defaults.", path
+        )
         return {}
 
     with path.open("r", newline="", encoding="utf-8") as manifest_file:
@@ -298,9 +366,11 @@ def read_manifest(path: Path) -> dict[str, dict[str, str]]:
         }
 
 
-def build_fuentes_table(population: pd.DataFrame, manifest_path: Path) -> pd.DataFrame:
+def build_fuentes_table(metrics: pd.DataFrame, manifest_path: Path) -> pd.DataFrame:
     manifest = read_manifest(manifest_path)
-    source_ids = sorted(set(population["fuente"].astype(str)) | {"commune_geometries_primary"})
+    source_ids = sorted(
+        set(metrics["fuente"].astype(str)) | {"commune_geometries_primary"}
+    )
     rows: list[dict[str, str]] = []
 
     for source_id in source_ids:
@@ -355,13 +425,60 @@ def source_metadata(source_id: str, manifest_row: dict[str, str]) -> dict[str, s
                 "mapping and geometry validity must be checked after download."
             ),
         },
+        "insecurity_cead_delincuencia_chile": {
+            "source_name": (
+                "CEAD delinquency data for Chile, processed by "
+                "bastianolea/delincuencia_chile"
+            ),
+            "institution": (
+                "Centro de Estudios y Analisis del Delito (CEAD), via "
+                "bastianolea/delincuencia_chile"
+            ),
+            "url": ("https://github.com/bastianolea/delincuencia_chile"),
+            "data_format": "parquet",
+            "territorial_level": "commune",
+            "temporal_coverage": "2018-2025",
+            "license_or_usage_notes": (
+                "Traceable public repository derived from CEAD public data. Cite "
+                "both CEAD/SPD and the repository used for reproducible access."
+            ),
+            "processing_script": "scripts/06_clean_insecurity.py",
+            "known_limitations": (
+                "The official CEAD web endpoint was not directly downloadable in "
+                "this environment, so the pipeline uses a public processed Parquet "
+                "with source scripts. Values are police cases, not victim counts, "
+                "and depend on CEAD category definitions."
+            ),
+        },
+        "derived_homicidios_rate_100k": {
+            "source_name": "Derived homicide rate per 100,000 inhabitants",
+            "institution": "Computed by this repository from CEAD-derived counts and INE population",
+            "url": (
+                "data/processed/inseguridad_comunal_anual.csv; "
+                "data/processed/poblacion_comunal_anual.csv"
+            ),
+            "data_format": "derived csv",
+            "territorial_level": "commune",
+            "temporal_coverage": "2018-2025",
+            "license_or_usage_notes": (
+                "Derived metric; retain attribution to both underlying sources."
+            ),
+            "processing_script": "scripts/07_build_derived_metrics.py",
+            "known_limitations": (
+                "Rates are calculated only where homicide counts and population "
+                "denominators overlap. Population denominators are INE estimates or "
+                "projections depending on year."
+            ),
+        },
     }
 
     default = defaults.get(source_id, {})
     return {
         "source_id": source_id,
-        "source_name": manifest_row.get("source_name") or default.get("source_name", ""),
-        "institution": manifest_row.get("institution") or default.get("institution", ""),
+        "source_name": manifest_row.get("source_name")
+        or default.get("source_name", ""),
+        "institution": manifest_row.get("institution")
+        or default.get("institution", ""),
         "url": manifest_row.get("url") or default.get("url", ""),
         "data_format": default.get("data_format", ""),
         "territorial_level": default.get("territorial_level", ""),
@@ -398,8 +515,7 @@ def write_sqlite(
             )
             fuentes.to_sql("fuentes", connection, index=False, if_exists="replace")
 
-            connection.executescript(
-                """
+            connection.executescript("""
                 CREATE UNIQUE INDEX idx_comunas_codigo
                     ON comunas (codigo_comuna);
                 CREATE UNIQUE INDEX idx_metricas_id
@@ -410,16 +526,36 @@ def write_sqlite(
                     ON valores_comunales_anuales (codigo_comuna, anio, id_metrica);
                 CREATE UNIQUE INDEX idx_fuentes_id
                     ON fuentes (source_id);
-                """
-            )
+                """)
 
     temp_path.replace(path)
 
 
+def sync_app_data(app_data_dir: Path, *, metrics_csv: Path, geojson: Path) -> None:
+    app_data_dir.mkdir(parents=True, exist_ok=True)
+    metrics_destination = app_data_dir / metrics_csv.name
+    geojson_destination = app_data_dir / geojson.name
+    shutil.copy2(metrics_csv, metrics_destination)
+    shutil.copy2(geojson, geojson_destination)
+    logging.info("Synced app metric CSV: %s", metrics_destination)
+    logging.info("Synced app GeoJSON: %s", geojson_destination)
+
+
 def build_outputs(args: argparse.Namespace) -> None:
-    population = read_population(args.population)
+    metric_frames = [
+        read_metric_file(args.population, label="population"),
+        read_optional_metric_file(args.insecurity, label="insecurity"),
+        read_optional_metric_file(args.derived_metrics, label="derived metrics"),
+    ]
+    metrics = (
+        pd.concat(metric_frames, ignore_index=True)
+        .sort_values(["id_metrica", "codigo_comuna", "anio"])
+        .reset_index(drop=True)
+    )
+    validate_metrics(metrics, label="combined metrics")
+
     geometries = read_geometries(args.geometries)
-    validate_key_coverage(population, geometries)
+    validate_key_coverage(metrics, geometries)
 
     args.final_dir.mkdir(parents=True, exist_ok=True)
     final_csv = args.final_dir / f"{METRICS_OUTPUT_NAME}.csv"
@@ -427,20 +563,23 @@ def build_outputs(args: argparse.Namespace) -> None:
     final_geojson = args.final_dir / GEOMETRIES_OUTPUT_NAME
     final_sqlite = args.final_dir / SQLITE_OUTPUT_NAME
 
-    population.to_csv(final_csv, index=False, encoding="utf-8")
-    population.to_parquet(final_parquet, index=False)
-    geometries[final_geometry_columns(geometries)].to_file(final_geojson, driver="GeoJSON")
+    metrics.to_csv(final_csv, index=False, encoding="utf-8")
+    metrics.to_parquet(final_parquet, index=False)
+    geometries[final_geometry_columns(geometries)].to_file(
+        final_geojson, driver="GeoJSON"
+    )
 
     comunas = build_comunas_table(geometries)
-    metricas = build_metricas_table(population)
-    fuentes = build_fuentes_table(population, args.manifest)
+    metricas = build_metricas_table(metrics)
+    fuentes = build_fuentes_table(metrics, args.manifest)
     write_sqlite(
         final_sqlite,
         comunas=comunas,
         metricas=metricas,
-        valores=population,
+        valores=metrics,
         fuentes=fuentes,
     )
+    sync_app_data(args.app_data_dir, metrics_csv=final_csv, geojson=final_geojson)
 
     logging.info("Wrote final metric CSV: %s", final_csv)
     logging.info("Wrote final metric Parquet: %s", final_parquet)

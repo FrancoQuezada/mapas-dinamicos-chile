@@ -1,0 +1,417 @@
+codigo_comuna,nombre_comuna,codigo_region,nombre_region,anio,id_metrica,nombre_metrica,valor,unidad,fuente,fecha_descarga
+13101,Santiago,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,20,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13101,Santiago,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,21,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13101,Santiago,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,33,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13101,Santiago,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,33,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13101,Santiago,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,59,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13101,Santiago,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,47,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13101,Santiago,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,28,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13101,Santiago,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,43,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13102,Cerrillos,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13102,Cerrillos,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13102,Cerrillos,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13102,Cerrillos,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13102,Cerrillos,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13102,Cerrillos,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13102,Cerrillos,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13102,Cerrillos,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13103,Cerro Navia,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,18,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13103,Cerro Navia,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13103,Cerro Navia,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,16,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13103,Cerro Navia,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13103,Cerro Navia,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13103,Cerro Navia,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13103,Cerro Navia,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,15,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13103,Cerro Navia,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13104,Conchalí,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13104,Conchalí,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13104,Conchalí,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13104,Conchalí,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13104,Conchalí,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13104,Conchalí,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13104,Conchalí,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13104,Conchalí,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13105,El Bosque,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13105,El Bosque,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13105,El Bosque,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,16,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13105,El Bosque,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13105,El Bosque,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13105,El Bosque,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13105,El Bosque,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13105,El Bosque,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13106,Estación Central,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13106,Estación Central,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,19,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13106,Estación Central,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,15,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13106,Estación Central,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13106,Estación Central,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,20,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13106,Estación Central,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,20,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13106,Estación Central,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,18,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13106,Estación Central,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,26,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13107,Huechuraba,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13107,Huechuraba,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13107,Huechuraba,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13107,Huechuraba,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13107,Huechuraba,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13107,Huechuraba,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13107,Huechuraba,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13107,Huechuraba,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13108,Independencia,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13108,Independencia,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13108,Independencia,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13108,Independencia,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13108,Independencia,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13108,Independencia,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13108,Independencia,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,22,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13108,Independencia,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13109,La Cisterna,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13109,La Cisterna,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13109,La Cisterna,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13109,La Cisterna,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13109,La Cisterna,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13109,La Cisterna,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13109,La Cisterna,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13109,La Cisterna,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13110,La Florida,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,13,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13110,La Florida,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,16,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13110,La Florida,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,20,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13110,La Florida,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13110,La Florida,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,17,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13110,La Florida,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13110,La Florida,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13110,La Florida,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13111,La Granja,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13111,La Granja,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13111,La Granja,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,13,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13111,La Granja,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13111,La Granja,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13111,La Granja,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,19,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13111,La Granja,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13111,La Granja,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13112,La Pintana,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,18,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13112,La Pintana,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,23,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13112,La Pintana,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,39,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13112,La Pintana,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,19,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13112,La Pintana,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,13,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13112,La Pintana,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,21,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13112,La Pintana,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,24,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13112,La Pintana,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,40,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13113,La Reina,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13113,La Reina,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13113,La Reina,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13113,La Reina,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13113,La Reina,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13113,La Reina,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13113,La Reina,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13113,La Reina,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13114,Las Condes,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13114,Las Condes,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13114,Las Condes,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13114,Las Condes,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13114,Las Condes,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13114,Las Condes,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13114,Las Condes,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13114,Las Condes,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13115,Lo Barnechea,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13115,Lo Barnechea,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13115,Lo Barnechea,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13115,Lo Barnechea,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13115,Lo Barnechea,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13115,Lo Barnechea,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13115,Lo Barnechea,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13115,Lo Barnechea,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13116,Lo Espejo,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,15,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13116,Lo Espejo,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13116,Lo Espejo,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,14,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13116,Lo Espejo,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13116,Lo Espejo,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13116,Lo Espejo,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,14,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13116,Lo Espejo,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13116,Lo Espejo,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13117,Lo Prado,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13117,Lo Prado,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13117,Lo Prado,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13117,Lo Prado,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13117,Lo Prado,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13117,Lo Prado,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13117,Lo Prado,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13117,Lo Prado,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13118,Macul,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13118,Macul,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13118,Macul,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13118,Macul,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13118,Macul,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13118,Macul,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13118,Macul,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13118,Macul,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13119,Maipú,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13119,Maipú,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13119,Maipú,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,28,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13119,Maipú,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,16,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13119,Maipú,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13119,Maipú,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,27,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13119,Maipú,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,19,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13119,Maipú,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13120,Ñuñoa,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13120,Ñuñoa,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13120,Ñuñoa,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13120,Ñuñoa,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13120,Ñuñoa,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13120,Ñuñoa,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13120,Ñuñoa,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13120,Ñuñoa,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13121,Pedro Aguirre Cerda,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13121,Pedro Aguirre Cerda,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13121,Pedro Aguirre Cerda,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,21,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13121,Pedro Aguirre Cerda,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13121,Pedro Aguirre Cerda,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13121,Pedro Aguirre Cerda,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13121,Pedro Aguirre Cerda,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13121,Pedro Aguirre Cerda,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13122,Peñalolén,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13122,Peñalolén,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13122,Peñalolén,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13122,Peñalolén,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13122,Peñalolén,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,13,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13122,Peñalolén,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,15,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13122,Peñalolén,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13122,Peñalolén,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13123,Providencia,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13123,Providencia,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13123,Providencia,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13123,Providencia,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13123,Providencia,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13123,Providencia,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13123,Providencia,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13123,Providencia,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13124,Pudahuel,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13124,Pudahuel,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,19,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13124,Pudahuel,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13124,Pudahuel,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,13,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13124,Pudahuel,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13124,Pudahuel,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,18,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13124,Pudahuel,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,14,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13124,Pudahuel,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13125,Quilicura,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13125,Quilicura,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13125,Quilicura,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,17,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13125,Quilicura,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13125,Quilicura,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13125,Quilicura,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,8,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13125,Quilicura,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13125,Quilicura,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,14,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13126,Quinta Normal,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13126,Quinta Normal,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13126,Quinta Normal,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13126,Quinta Normal,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13126,Quinta Normal,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13126,Quinta Normal,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13126,Quinta Normal,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13126,Quinta Normal,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13127,Recoleta,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13127,Recoleta,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13127,Recoleta,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,13,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13127,Recoleta,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,17,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13127,Recoleta,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,20,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13127,Recoleta,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,19,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13127,Recoleta,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,34,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13127,Recoleta,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,25,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13128,Renca,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,14,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13128,Renca,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13128,Renca,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,13,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13128,Renca,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13128,Renca,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13128,Renca,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13128,Renca,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13128,Renca,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13129,San Joaquín,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13129,San Joaquín,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13129,San Joaquín,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13129,San Joaquín,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13129,San Joaquín,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13129,San Joaquín,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13129,San Joaquín,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13129,San Joaquín,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13130,San Miguel,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13130,San Miguel,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13130,San Miguel,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13130,San Miguel,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13130,San Miguel,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13130,San Miguel,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13130,San Miguel,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13130,San Miguel,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13131,San Ramón,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13131,San Ramón,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13131,San Ramón,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13131,San Ramón,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13131,San Ramón,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13131,San Ramón,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13131,San Ramón,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13131,San Ramón,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13132,Vitacura,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13132,Vitacura,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13132,Vitacura,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13132,Vitacura,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13132,Vitacura,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13132,Vitacura,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13132,Vitacura,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13132,Vitacura,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13201,Puente Alto,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,22,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13201,Puente Alto,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,30,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13201,Puente Alto,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,26,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13201,Puente Alto,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,17,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13201,Puente Alto,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,17,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13201,Puente Alto,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,30,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13201,Puente Alto,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,38,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13201,Puente Alto,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,39,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13202,Pirque,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13202,Pirque,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13202,Pirque,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13202,Pirque,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13202,Pirque,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13202,Pirque,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13202,Pirque,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13202,Pirque,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13203,San José de Maipo,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13203,San José de Maipo,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13203,San José de Maipo,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13203,San José de Maipo,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13203,San José de Maipo,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13203,San José de Maipo,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13203,San José de Maipo,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13203,San José de Maipo,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13301,Colina,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13301,Colina,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13301,Colina,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13301,Colina,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,20,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13301,Colina,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,16,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13301,Colina,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13301,Colina,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,14,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13301,Colina,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,20,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13302,Lampa,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13302,Lampa,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13302,Lampa,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13302,Lampa,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13302,Lampa,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13302,Lampa,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,12,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13302,Lampa,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13302,Lampa,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,14,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13303,Tiltil,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13303,Tiltil,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13303,Tiltil,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13303,Tiltil,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13303,Tiltil,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13303,Tiltil,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13303,Tiltil,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13303,Tiltil,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13401,San Bernardo,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,19,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13401,San Bernardo,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,15,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13401,San Bernardo,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,26,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13401,San Bernardo,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13401,San Bernardo,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,20,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13401,San Bernardo,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,28,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13401,San Bernardo,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,24,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13401,San Bernardo,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,22,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13402,Buin,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13402,Buin,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13402,Buin,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13402,Buin,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13402,Buin,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13402,Buin,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13402,Buin,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13402,Buin,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13403,Calera de Tango,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13403,Calera de Tango,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13403,Calera de Tango,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13403,Calera de Tango,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13403,Calera de Tango,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13403,Calera de Tango,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13403,Calera de Tango,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13403,Calera de Tango,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13404,Paine,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13404,Paine,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13404,Paine,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13404,Paine,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13404,Paine,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13404,Paine,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13404,Paine,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13404,Paine,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13501,Melipilla,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13501,Melipilla,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,10,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13501,Melipilla,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13501,Melipilla,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,7,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13501,Melipilla,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13501,Melipilla,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,14,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13501,Melipilla,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13501,Melipilla,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,9,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13502,Alhué,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13502,Alhué,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13502,Alhué,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13502,Alhué,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13502,Alhué,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13502,Alhué,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13502,Alhué,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13502,Alhué,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13503,Curacaví,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13503,Curacaví,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13503,Curacaví,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13503,Curacaví,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13503,Curacaví,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13503,Curacaví,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13503,Curacaví,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13503,Curacaví,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13504,María Pinto,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13504,María Pinto,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13504,María Pinto,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13504,María Pinto,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13504,María Pinto,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13504,María Pinto,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13504,María Pinto,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13504,María Pinto,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13505,San Pedro,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13505,San Pedro,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13505,San Pedro,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13505,San Pedro,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13505,San Pedro,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13505,San Pedro,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13505,San Pedro,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13505,San Pedro,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13601,Talagante,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13601,Talagante,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13601,Talagante,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13601,Talagante,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13601,Talagante,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13601,Talagante,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13601,Talagante,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,11,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13601,Talagante,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13602,El Monte,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13602,El Monte,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13602,El Monte,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13602,El Monte,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13602,El Monte,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13602,El Monte,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13602,El Monte,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,4,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13602,El Monte,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13603,Isla de Maipo,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13603,Isla de Maipo,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13603,Isla de Maipo,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13603,Isla de Maipo,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13603,Isla de Maipo,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13603,Isla de Maipo,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13603,Isla de Maipo,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13603,Isla de Maipo,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13604,Padre Hurtado,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13604,Padre Hurtado,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13604,Padre Hurtado,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13604,Padre Hurtado,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13604,Padre Hurtado,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,5,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13604,Padre Hurtado,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,2,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13604,Padre Hurtado,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13604,Padre Hurtado,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13605,Peñaflor,13,Región Metropolitana de Santiago,2018,homicidios,Homicidios,0,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13605,Peñaflor,13,Región Metropolitana de Santiago,2019,homicidios,Homicidios,1,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13605,Peñaflor,13,Región Metropolitana de Santiago,2020,homicidios,Homicidios,6,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13605,Peñaflor,13,Región Metropolitana de Santiago,2021,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13605,Peñaflor,13,Región Metropolitana de Santiago,2022,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13605,Peñaflor,13,Región Metropolitana de Santiago,2023,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13605,Peñaflor,13,Región Metropolitana de Santiago,2024,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29
+13605,Peñaflor,13,Región Metropolitana de Santiago,2025,homicidios,Homicidios,3,casos policiales,insecurity_cead_delincuencia_chile,2026-05-29

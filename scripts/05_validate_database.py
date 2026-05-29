@@ -11,7 +11,6 @@ from pathlib import Path
 import geopandas as gpd
 import pandas as pd
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_FINAL_DIR = PROJECT_ROOT / "data" / "final"
 
@@ -23,6 +22,7 @@ SQLITE_FILE = "mapas_chile.sqlite"
 RM_REGION_CODE = "13"
 PERIOD_MIN_YEARS = 28
 PERIOD_MAX_YEARS = 35
+POPULATION_METRIC_ID = "poblacion_total"
 
 METRIC_COLUMNS = [
     "codigo_comuna",
@@ -134,7 +134,9 @@ def validate_metrics(metrics: pd.DataFrame, summary: ValidationSummary) -> pd.Da
     missing_values = metrics[METRIC_COLUMNS].replace("", pd.NA).isna().sum()
     missing_values = missing_values[missing_values > 0]
     if not missing_values.empty:
-        summary.add_error(f"Metric table has missing values: {missing_values.to_dict()}")
+        summary.add_error(
+            f"Metric table has missing values: {missing_values.to_dict()}"
+        )
 
     years = pd.to_numeric(metrics["anio"], errors="coerce")
     invalid_years = years.isna() | (years != years.round())
@@ -149,11 +151,13 @@ def validate_metrics(metrics: pd.DataFrame, summary: ValidationSummary) -> pd.Da
     invalid_values = values.isna()
     if invalid_values.any():
         sample = metrics.loc[invalid_values, "valor"].head(10).tolist()
-        summary.add_error(f"Population values must be numeric. Invalid examples: {sample}")
+        summary.add_error(f"Metric values must be numeric. Invalid examples: {sample}")
     elif (values < 0).any():
-        sample = metrics.loc[values < 0, ["codigo_comuna", "anio", "valor"]]
+        sample = metrics.loc[
+            values < 0, ["codigo_comuna", "anio", "id_metrica", "valor"]
+        ]
         summary.add_error(
-            "Population values must be non-negative. "
+            "Metric values must be non-negative. "
             f"Invalid examples: {sample.head(10).to_dict('records')}"
         )
     else:
@@ -169,15 +173,43 @@ def validate_metrics(metrics: pd.DataFrame, summary: ValidationSummary) -> pd.Da
             f"{sample.to_dict('records')}"
         )
 
-    if "anio" in metrics.columns:
-        unique_years = sorted(metrics["anio"].dropna().unique().tolist())
-        summary.details["year_count"] = len(unique_years)
-        summary.details["year_min"] = min(unique_years) if unique_years else None
-        summary.details["year_max"] = max(unique_years) if unique_years else None
-        if not PERIOD_MIN_YEARS <= len(unique_years) <= PERIOD_MAX_YEARS:
+    if {"anio", "id_metrica"}.issubset(metrics.columns):
+        metric_summaries = []
+        for metric_id, metric_rows in metrics.groupby("id_metrica", dropna=False):
+            unique_years = sorted(metric_rows["anio"].dropna().unique().tolist())
+            metric_summaries.append(
+                {
+                    "id_metrica": str(metric_id),
+                    "year_min": min(unique_years) if unique_years else None,
+                    "year_max": max(unique_years) if unique_years else None,
+                    "year_count": len(unique_years),
+                    "row_count": int(len(metric_rows)),
+                }
+            )
+        summary.details["metric_summaries"] = metric_summaries
+
+        population_years = sorted(
+            metrics.loc[
+                metrics["id_metrica"] == POPULATION_METRIC_ID,
+                "anio",
+            ]
+            .dropna()
+            .unique()
+            .tolist()
+        )
+        summary.details["year_count"] = len(population_years)
+        summary.details["year_min"] = (
+            min(population_years) if population_years else None
+        )
+        summary.details["year_max"] = (
+            max(population_years) if population_years else None
+        )
+        if not population_years:
+            summary.add_error(f"Required metric {POPULATION_METRIC_ID!r} is missing.")
+        elif not PERIOD_MIN_YEARS <= len(population_years) <= PERIOD_MAX_YEARS:
             summary.add_error(
-                "Final period should cover approximately 30 years. "
-                f"Found {len(unique_years)} unique years."
+                "Population period should cover approximately 30 years. "
+                f"Found {len(population_years)} unique years."
             )
 
     return metrics
@@ -187,7 +219,9 @@ def validate_geometries(
     geometries: gpd.GeoDataFrame,
     summary: ValidationSummary,
 ) -> gpd.GeoDataFrame:
-    if not validate_required_columns(geometries, GEOMETRY_COLUMNS, "Geometry file", summary):
+    if not validate_required_columns(
+        geometries, GEOMETRY_COLUMNS, "Geometry file", summary
+    ):
         return geometries
 
     non_rm = geometries[geometries["codigo_region"].astype(str) != RM_REGION_CODE]
@@ -211,9 +245,9 @@ def validate_geometries(
     if geometries.crs is None or geometries.crs.to_epsg() != 4326:
         summary.add_error(f"Geometry file must use EPSG:4326. Found: {geometries.crs}")
 
-    duplicate_codes = geometries[
-        geometries.duplicated("codigo_comuna", keep=False)
-    ]["codigo_comuna"]
+    duplicate_codes = geometries[geometries.duplicated("codigo_comuna", keep=False)][
+        "codigo_comuna"
+    ]
     if not duplicate_codes.empty:
         summary.add_error(
             "Geometry file has duplicated commune codes: "
@@ -229,24 +263,35 @@ def validate_key_coverage(
     geometries: gpd.GeoDataFrame,
     summary: ValidationSummary,
 ) -> None:
-    if "codigo_comuna" not in metrics.columns or "codigo_comuna" not in geometries.columns:
+    if (
+        "codigo_comuna" not in metrics.columns
+        or "codigo_comuna" not in geometries.columns
+    ):
         return
 
     metric_codes = set(metrics["codigo_comuna"].dropna().astype(str))
     geometry_codes = set(geometries["codigo_comuna"].dropna().astype(str))
+    population_codes = set(
+        metrics.loc[
+            metrics["id_metrica"] == POPULATION_METRIC_ID,
+            "codigo_comuna",
+        ]
+        .dropna()
+        .astype(str)
+    )
 
-    missing_population = sorted(geometry_codes - metric_codes)
-    unknown_population = sorted(metric_codes - geometry_codes)
+    missing_population = sorted(geometry_codes - population_codes)
+    unknown_metrics = sorted(metric_codes - geometry_codes)
 
     if missing_population:
         summary.add_error(
             "Every RM commune in the geometry file must have population values. "
             f"Missing: {missing_population}"
         )
-    if unknown_population:
+    if unknown_metrics:
         summary.add_error(
-            "Every population row must match a known commune code. "
-            f"Unknown: {unknown_population}"
+            "Every metric row must match a known commune code. "
+            f"Unknown: {unknown_metrics}"
         )
 
 
@@ -259,32 +304,48 @@ def missing_commune_years(
     if "codigo_comuna" not in geometries.columns:
         return pd.DataFrame(columns=["codigo_comuna", "anio", "id_metrica"])
 
-    valid_years = pd.to_numeric(metrics["anio"], errors="coerce")
-    valid_years = valid_years[valid_years.notna() & (valid_years == valid_years.round())]
-    years = sorted(valid_years.astype(int).unique().tolist())
     metric_ids = sorted(metrics["id_metrica"].dropna().astype(str).unique().tolist())
-    commune_codes = sorted(geometries["codigo_comuna"].dropna().astype(str).unique().tolist())
-    if not years or not metric_ids or not commune_codes:
+    commune_codes = sorted(
+        geometries["codigo_comuna"].dropna().astype(str).unique().tolist()
+    )
+    if not metric_ids or not commune_codes:
         return pd.DataFrame(columns=["codigo_comuna", "anio", "id_metrica"])
 
-    expected = pd.MultiIndex.from_product(
-        [commune_codes, years, metric_ids],
-        names=["codigo_comuna", "anio", "id_metrica"],
-    ).to_frame(index=False)
     observed = metrics[["codigo_comuna", "anio", "id_metrica"]].drop_duplicates().copy()
     observed["codigo_comuna"] = observed["codigo_comuna"].astype(str)
     observed["id_metrica"] = observed["id_metrica"].astype(str)
 
-    merged = expected.merge(
-        observed,
-        on=["codigo_comuna", "anio", "id_metrica"],
-        how="left",
-        indicator=True,
-    )
-    return merged.loc[
-        merged["_merge"] == "left_only",
-        ["codigo_comuna", "anio", "id_metrica"],
-    ].reset_index(drop=True)
+    missing_frames: list[pd.DataFrame] = []
+    for metric_id in metric_ids:
+        metric_rows = observed[observed["id_metrica"] == metric_id]
+        valid_years = pd.to_numeric(metric_rows["anio"], errors="coerce")
+        valid_years = valid_years[
+            valid_years.notna() & (valid_years == valid_years.round())
+        ]
+        years = sorted(valid_years.astype(int).unique().tolist())
+        if not years:
+            continue
+
+        expected = pd.MultiIndex.from_product(
+            [commune_codes, years, [metric_id]],
+            names=["codigo_comuna", "anio", "id_metrica"],
+        ).to_frame(index=False)
+        merged = expected.merge(
+            observed,
+            on=["codigo_comuna", "anio", "id_metrica"],
+            how="left",
+            indicator=True,
+        )
+        missing_frames.append(
+            merged.loc[
+                merged["_merge"] == "left_only",
+                ["codigo_comuna", "anio", "id_metrica"],
+            ]
+        )
+
+    if not missing_frames:
+        return pd.DataFrame(columns=["codigo_comuna", "anio", "id_metrica"])
+    return pd.concat(missing_frames, ignore_index=True)
 
 
 def validate_sqlite(path: Path, summary: ValidationSummary) -> None:
@@ -301,7 +362,9 @@ def validate_sqlite(path: Path, summary: ValidationSummary) -> None:
         summary.add_error(f"SQLite database is missing tables: {missing_tables}")
 
 
-def validate_final_outputs(final_dir: Path, max_missing_report: int = 20) -> ValidationSummary:
+def validate_final_outputs(
+    final_dir: Path, max_missing_report: int = 20
+) -> ValidationSummary:
     summary = ValidationSummary()
     metrics_path = final_dir / METRICS_FILE
     parquet_path = final_dir / METRICS_PARQUET_FILE
@@ -325,8 +388,7 @@ def validate_final_outputs(final_dir: Path, max_missing_report: int = 20) -> Val
     ).to_dict("records")
     if not missing.empty:
         summary.add_error(
-            "Missing commune-year-metric combinations found. "
-            f"Count: {len(missing)}."
+            "Missing commune-year-metric combinations found. " f"Count: {len(missing)}."
         )
 
     return summary
@@ -338,11 +400,21 @@ def print_summary(summary: ValidationSummary) -> None:
     print(f"Status: {'PASS' if summary.passed else 'FAIL'}")
     print(f"Communes: {summary.details.get('commune_count', 'not available')}")
     print(
-        "Years: "
+        "Population years: "
         f"{summary.details.get('year_min', 'not available')} - "
         f"{summary.details.get('year_max', 'not available')} "
         f"({summary.details.get('year_count', 'not available')} unique years)"
     )
+    metric_summaries = summary.details.get("metric_summaries") or []
+    if metric_summaries:
+        print("Metrics:")
+        for metric in metric_summaries:
+            print(
+                "  - "
+                f"{metric['id_metrica']}: "
+                f"{metric['year_min']} - {metric['year_max']} "
+                f"({metric['year_count']} years, {metric['row_count']} rows)"
+            )
     print(
         "Missing commune-year-metric combinations: "
         f"{summary.details.get('missing_commune_year_count', 'not available')}"
