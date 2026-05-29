@@ -81,6 +81,37 @@ Run tests once pipeline scripts and final outputs exist:
 pytest
 ```
 
+## Static Web App
+
+The first static map MVP lives in `app/`. It uses Leaflet, Chart.js, and PapaParse with no backend.
+
+Before running the app, make sure the final data files exist:
+
+```text
+data/final/comunas_rm.geojson
+data/final/valores_comunales_anuales.csv
+```
+
+The app keeps browser-ready copies under:
+
+```text
+app/data/comunas_rm.geojson
+app/data/valores_comunales_anuales.csv
+```
+
+Run it locally from the project root:
+
+```bash
+cd app
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000
+```
+
 ## Status
 
-Scaffold only. Data download, cleaning scripts, validation scripts, tests, and final datasets are intentionally not created in this first setup step.
+First data pipeline and static map MVP are in progress for Metropolitan Region commune population.

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mapas Chile</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="map-area" aria-label="Population map">
+        <div id="map"></div>
+
+        <div class="year-control" aria-label="Year selector">
+          <div class="year-control__top">
+            <span>Year</span>
+            <strong id="year-label">----</strong>
+          </div>
+          <input id="year-slider" type="range" min="2002" max="2035" step="1" />
+        </div>
+
+        <div class="legend" id="legend" aria-label="Population legend"></div>
+      </section>
+
+      <aside class="side-panel" aria-label="Selected commune details">
+        <div class="panel-header">
+          <p>Metropolitan Region</p>
+          <h1 id="commune-name">Santiago</h1>
+        </div>
+
+        <dl class="stat-grid">
+          <div>
+            <dt>Selected year</dt>
+            <dd id="selected-year">----</dd>
+          </div>
+          <div>
+            <dt>Population</dt>
+            <dd id="selected-population">--</dd>
+          </div>
+        </dl>
+
+        <section class="chart-section" aria-label="Population time series">
+          <h2>Annual population</h2>
+          <div class="chart-wrap">
+            <canvas id="population-chart"></canvas>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+</html>
